@@ -8,6 +8,7 @@ import (
 
 	"github.com/0xPolygon/go-ibft/messages"
 	"github.com/0xPolygon/go-ibft/messages/proto"
+	"github.com/0xPolygon/polygon-edge/chain"
 	"github.com/0xPolygon/polygon-edge/consensus"
 	"github.com/0xPolygon/polygon-edge/consensus/ibft/signer"
 	"github.com/0xPolygon/polygon-edge/helper/hex"
@@ -178,8 +179,19 @@ func (i *backendIBFT) buildBlock(parent *types.Header) (*types.Block, error) {
 		return nil, err
 	}
 
-	// calculate base fee
 	header.GasLimit = gasLimit
+
+	// calculate base fee according to EIP-1559
+	if i.config.Params.Forks.IsActive(chain.London, header.Number) {
+		// Apply EIP-1559 base fee calculation
+		var baseFee uint64
+		if parent.BaseFee > 0 {
+			baseFee = i.blockchain.CalculateBaseFee(parent)
+		} else {
+			baseFee = 5000000000 // 5 gwei default for first EIP-1559 block
+		}
+		header.BaseFee = baseFee
+	}
 
 	if err := i.currentHooks.ModifyHeader(header, i.currentSigner.Address()); err != nil {
 		return nil, err
