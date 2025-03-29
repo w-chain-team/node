@@ -55,7 +55,7 @@ build-linux-amd64: check-go check-git
 	$(eval VERSION = $(shell git tag --points-at ${COMMIT_HASH}))
 	$(eval BRANCH = $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n'))
 	$(eval TIME = $(shell date))
-	GOOS=linux GOARCH=amd64 go build -o w-chain-node -ldflags="\
+	GOOS=linux GOARCH=amd64 go build -o w-chain-node-linux-amd64 -ldflags="\
 			-X 'github.com/0xPolygon/polygon-edge/versioning.Version=$(VERSION)' \
 			-X 'github.com/0xPolygon/polygon-edge/versioning.Commit=$(COMMIT_HASH)'\
 			-X 'github.com/0xPolygon/polygon-edge/versioning.Branch=$(BRANCH)'\
@@ -68,7 +68,7 @@ build-linux-arm64: check-go check-git
 	$(eval VERSION = $(shell git tag --points-at ${COMMIT_HASH}))
 	$(eval BRANCH = $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n'))
 	$(eval TIME = $(shell date))
-	GOOS=linux GOARCH=arm64 go build -o w-chain-node -ldflags="\
+	GOOS=linux GOARCH=arm64 go build -o w-chain-node-linux-arm64 -ldflags="\
 			-X 'github.com/0xPolygon/polygon-edge/versioning.Version=$(VERSION)' \
 			-X 'github.com/0xPolygon/polygon-edge/versioning.Commit=$(COMMIT_HASH)'\
 			-X 'github.com/0xPolygon/polygon-edge/versioning.Branch=$(BRANCH)'\
@@ -129,6 +129,27 @@ stop-docker:
 .PHONY: destroy-docker
 destroy-docker:
 	./scripts/cluster polybft --docker destroy
+
+.PHONY: release
+release: check-go check-git
+	$(eval VERSION = $(shell git describe --tags --abbrev=0))
+	$(eval COMMIT_HASH = $(shell git rev-parse HEAD))
+	$(eval BRANCH = $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n'))
+	$(eval TIME = $(shell date))
+	# Build binaries for all platforms
+	$(MAKE) build-linux-amd64
+	$(MAKE) build-linux-arm64
+	$(MAKE) build
+	# Create tar.gz files
+	tar -czf polygon-edge_$(VERSION)_darwin_amd64.tar.gz w-chain-node
+	tar -czf polygon-edge_$(VERSION)_darwin_arm64.tar.gz w-chain-node
+	tar -czf polygon-edge_$(VERSION)_linux_amd64.tar.gz w-chain-node-linux-amd64
+	tar -czf polygon-edge_$(VERSION)_linux_arm64.tar.gz w-chain-node-linux-arm64
+	# Generate checksums
+	shasum -a 256 polygon-edge_$(VERSION)_darwin_amd64.tar.gz > polygon-edge_$(VERSION)_checksums.txt
+	shasum -a 256 polygon-edge_$(VERSION)_darwin_arm64.tar.gz >> polygon-edge_$(VERSION)_checksums.txt
+	shasum -a 256 polygon-edge_$(VERSION)_linux_amd64.tar.gz >> polygon-edge_$(VERSION)_checksums.txt
+	shasum -a 256 polygon-edge_$(VERSION)_linux_arm64.tar.gz >> polygon-edge_$(VERSION)_checksums.txt
 
 .PHONY: help
 help:
