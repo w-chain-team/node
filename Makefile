@@ -42,7 +42,7 @@ build: check-go check-git
 	$(eval VERSION = $(shell git tag --points-at ${COMMIT_HASH}))
 	$(eval BRANCH = $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n'))
 	$(eval TIME = $(shell date))
-	go build -o polygon-edge -ldflags="\
+	go build -o w-chain-node -ldflags="\
     	-X 'github.com/0xPolygon/polygon-edge/versioning.Version=$(VERSION)' \
 		-X 'github.com/0xPolygon/polygon-edge/versioning.Commit=$(COMMIT_HASH)'\
 		-X 'github.com/0xPolygon/polygon-edge/versioning.Branch=$(BRANCH)'\
@@ -141,15 +141,20 @@ release: check-go check-git
 	$(MAKE) build-linux-arm64
 	$(MAKE) build
 	# Create tar.gz files
-	tar -czf polygon-edge_$(VERSION)_darwin_amd64.tar.gz w-chain-node
-	tar -czf polygon-edge_$(VERSION)_darwin_arm64.tar.gz w-chain-node
-	tar -czf polygon-edge_$(VERSION)_linux_amd64.tar.gz w-chain-node-linux-amd64
-	tar -czf polygon-edge_$(VERSION)_linux_arm64.tar.gz w-chain-node-linux-arm64
+	tar -czf w-chain-node_$(VERSION)_darwin_amd64.tar.gz w-chain-node
+	tar -czf w-chain-node_$(VERSION)_darwin_arm64.tar.gz w-chain-node
+	tar -czf w-chain-node_$(VERSION)_linux_amd64.tar.gz w-chain-node-linux-amd64
+	tar -czf w-chain-node_$(VERSION)_linux_arm64.tar.gz w-chain-node-linux-arm64
 	# Generate checksums
-	shasum -a 256 polygon-edge_$(VERSION)_darwin_amd64.tar.gz > polygon-edge_$(VERSION)_checksums.txt
-	shasum -a 256 polygon-edge_$(VERSION)_darwin_arm64.tar.gz >> polygon-edge_$(VERSION)_checksums.txt
-	shasum -a 256 polygon-edge_$(VERSION)_linux_amd64.tar.gz >> polygon-edge_$(VERSION)_checksums.txt
-	shasum -a 256 polygon-edge_$(VERSION)_linux_arm64.tar.gz >> polygon-edge_$(VERSION)_checksums.txt
+	shasum -a 256 w-chain-node_$(VERSION)_darwin_amd64.tar.gz > w-chain-node_$(VERSION)_checksums.txt
+	shasum -a 256 w-chain-node_$(VERSION)_darwin_arm64.tar.gz >> w-chain-node_$(VERSION)_checksums.txt
+	shasum -a 256 w-chain-node_$(VERSION)_linux_amd64.tar.gz >> w-chain-node_$(VERSION)_checksums.txt
+	shasum -a 256 w-chain-node_$(VERSION)_linux_arm64.tar.gz >> w-chain-node_$(VERSION)_checksums.txt
+
+.PHONY: source-zip
+source-zip: check-git
+	$(eval VERSION = $(shell git describe --tags --abbrev=0 || echo "latest"))
+	git archive --format=zip --output=w-chain-node_$(VERSION)_source.zip HEAD
 
 .PHONY: help
 help:
@@ -170,3 +175,4 @@ help:
 	@printf "  %-35s - %s\n" "run-docker" "Run Docker cluster for PolyBFT"
 	@printf "  %-35s - %s\n" "stop-docker" "Stop Docker cluster for PolyBFT"
 	@printf "  %-35s - %s\n" "destroy-docker" "Destroy Docker cluster for PolyBFT"
+	@printf "  %-35s - %s\n" "source-zip" "Create a zip archive of git-tracked source code"
