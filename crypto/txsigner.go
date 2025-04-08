@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/helper/keccak"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/chain"
+	"github.com/w-chain-team/node/helper/keccak"
+	"github.com/w-chain-team/node/types"
 )
 
 // Magic numbers from Ethereum, used in v calculation

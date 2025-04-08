@@ -3,11 +3,11 @@ package contract
 import (
 	"fmt"
 
-	"github.com/0xPolygon/polygon-edge/contracts/staking"
-	"github.com/0xPolygon/polygon-edge/crypto"
-	"github.com/0xPolygon/polygon-edge/state"
-	"github.com/0xPolygon/polygon-edge/types"
-	"github.com/0xPolygon/polygon-edge/validators"
+	"github.com/w-chain-team/node/contracts/staking"
+	"github.com/w-chain-team/node/crypto"
+	"github.com/w-chain-team/node/state"
+	"github.com/w-chain-team/node/types"
+	"github.com/w-chain-team/node/validators"
 )
 
 // FetchValidators fetches validators from a contract switched by validator type

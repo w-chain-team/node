@@ -12,15 +12,15 @@ import (
 	"github.com/armon/go-metrics"
 	hcf "github.com/hashicorp/go-hclog"
 
-	"github.com/0xPolygon/polygon-edge/bls"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/bitmap"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/signer"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/validator"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/wallet"
-	"github.com/0xPolygon/polygon-edge/contracts"
-	"github.com/0xPolygon/polygon-edge/state"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/bls"
+	"github.com/w-chain-team/node/consensus/polybft/bitmap"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi"
+	"github.com/w-chain-team/node/consensus/polybft/signer"
+	"github.com/w-chain-team/node/consensus/polybft/validator"
+	"github.com/w-chain-team/node/consensus/polybft/wallet"
+	"github.com/w-chain-team/node/contracts"
+	"github.com/w-chain-team/node/state"
+	"github.com/w-chain-team/node/types"
 )
 
 type blockBuilder interface {

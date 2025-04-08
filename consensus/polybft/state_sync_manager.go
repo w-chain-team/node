@@ -16,16 +16,16 @@ import (
 	bolt "go.etcd.io/bbolt"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/0xPolygon/polygon-edge/bls"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/bitmap"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi"
-	polybftProto "github.com/0xPolygon/polygon-edge/consensus/polybft/proto"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/signer"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/validator"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/wallet"
-	"github.com/0xPolygon/polygon-edge/contracts"
-	"github.com/0xPolygon/polygon-edge/tracker"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/bls"
+	"github.com/w-chain-team/node/consensus/polybft/bitmap"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi"
+	polybftProto "github.com/w-chain-team/node/consensus/polybft/proto"
+	"github.com/w-chain-team/node/consensus/polybft/signer"
+	"github.com/w-chain-team/node/consensus/polybft/validator"
+	"github.com/w-chain-team/node/consensus/polybft/wallet"
+	"github.com/w-chain-team/node/contracts"
+	"github.com/w-chain-team/node/tracker"
+	"github.com/w-chain-team/node/types"
 )
 
 type Runtime interface {

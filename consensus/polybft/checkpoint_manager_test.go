@@ -10,22 +10,22 @@ import (
 	"github.com/umbracle/ethgo/abi"
 	"github.com/umbracle/ethgo/jsonrpc"
 
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/signer"
-	"github.com/0xPolygon/polygon-edge/contracts"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/merkle-tree"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi"
+	"github.com/w-chain-team/node/consensus/polybft/signer"
+	"github.com/w-chain-team/node/contracts"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/merkle-tree"
 	hclog "github.com/hashicorp/go-hclog"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 	"github.com/umbracle/ethgo"
 
-	"github.com/0xPolygon/polygon-edge/bls"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/bitmap"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/validator"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/wallet"
-	"github.com/0xPolygon/polygon-edge/txrelayer"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/bls"
+	"github.com/w-chain-team/node/consensus/polybft/bitmap"
+	"github.com/w-chain-team/node/consensus/polybft/validator"
+	"github.com/w-chain-team/node/consensus/polybft/wallet"
+	"github.com/w-chain-team/node/txrelayer"
+	"github.com/w-chain-team/node/types"
 )
 
 func TestCheckpointManager_SubmitCheckpoint(t *testing.T) {

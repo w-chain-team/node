@@ -1,9 +1,9 @@
 package txpool
 
 import (
-	"github.com/0xPolygon/polygon-edge/command/helper"
-	"github.com/0xPolygon/polygon-edge/command/txpool/status"
-	"github.com/0xPolygon/polygon-edge/command/txpool/subscribe"
+	"github.com/w-chain-team/node/command/helper"
+	"github.com/w-chain-team/node/command/txpool/status"
+	"github.com/w-chain-team/node/command/txpool/subscribe"
 	"github.com/spf13/cobra"
 )
 

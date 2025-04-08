@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/helper/hex"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/helper/hex"
+	"github.com/w-chain-team/node/types"
 )
 
 const jsonRPCMetric = "json_rpc"

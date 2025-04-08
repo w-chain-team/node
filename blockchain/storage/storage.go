@@ -3,7 +3,7 @@ package storage
 import (
 	"math/big"
 
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/types"
 	"github.com/hashicorp/go-hclog"
 )
 

@@ -16,16 +16,16 @@ import (
 	"github.com/umbracle/ethgo/abi"
 	"github.com/umbracle/ethgo/jsonrpc"
 
-	"github.com/0xPolygon/polygon-edge/consensus/polybft"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi/artifact"
-	"github.com/0xPolygon/polygon-edge/contracts"
-	"github.com/0xPolygon/polygon-edge/e2e-polybft/framework"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/helper/hex"
-	"github.com/0xPolygon/polygon-edge/state/runtime/addresslist"
-	"github.com/0xPolygon/polygon-edge/txrelayer"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/consensus/polybft"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi/artifact"
+	"github.com/w-chain-team/node/contracts"
+	"github.com/w-chain-team/node/e2e-polybft/framework"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/helper/hex"
+	"github.com/w-chain-team/node/state/runtime/addresslist"
+	"github.com/w-chain-team/node/txrelayer"
+	"github.com/w-chain-team/node/types"
 )
 
 // getCheckpointManagerValidators queries rootchain validator set on CheckpointManager contract

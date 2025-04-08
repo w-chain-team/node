@@ -13,11 +13,11 @@ import (
 	"github.com/umbracle/ethgo/jsonrpc"
 	"github.com/umbracle/ethgo/wallet"
 
-	"github.com/0xPolygon/polygon-edge/consensus/polybft"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi"
-	"github.com/0xPolygon/polygon-edge/e2e-polybft/framework"
-	"github.com/0xPolygon/polygon-edge/txrelayer"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/consensus/polybft"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi"
+	"github.com/w-chain-team/node/e2e-polybft/framework"
+	"github.com/w-chain-team/node/txrelayer"
+	"github.com/w-chain-team/node/types"
 )
 
 func TestE2E_TxPool_Transfer(t *testing.T) {

@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/state/runtime"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/chain"
+	"github.com/w-chain-team/node/state/runtime"
+	"github.com/w-chain-team/node/types"
 )
 
 func TestOverride(t *testing.T) {

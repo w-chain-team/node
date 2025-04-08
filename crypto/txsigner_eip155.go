@@ -5,7 +5,7 @@ import (
 	"math/big"
 	"math/bits"
 
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/types"
 )
 
 type EIP155Signer struct {

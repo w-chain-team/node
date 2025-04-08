@@ -3,9 +3,9 @@ package candidates
 import (
 	"context"
 
-	"github.com/0xPolygon/polygon-edge/command"
-	"github.com/0xPolygon/polygon-edge/command/helper"
-	ibftOp "github.com/0xPolygon/polygon-edge/consensus/ibft/proto"
+	"github.com/w-chain-team/node/command"
+	"github.com/w-chain-team/node/command/helper"
+	ibftOp "github.com/w-chain-team/node/consensus/ibft/proto"
 	"github.com/spf13/cobra"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 )

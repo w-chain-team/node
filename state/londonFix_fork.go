@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/0xPolygon/polygon-edge/forkmanager"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/forkmanager"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/types"
 )
 
 const LondonFixHandler forkmanager.HandlerDesc = "LondonFixHandler"

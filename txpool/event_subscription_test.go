@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/0xPolygon/polygon-edge/helper/tests"
-	"github.com/0xPolygon/polygon-edge/txpool/proto"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/helper/tests"
+	"github.com/w-chain-team/node/txpool/proto"
+	"github.com/w-chain-team/node/types"
 	"github.com/stretchr/testify/assert"
 )
 

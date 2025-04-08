@@ -9,12 +9,12 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/0xPolygon/polygon-edge/bls"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi"
-	"github.com/0xPolygon/polygon-edge/crypto"
+	"github.com/w-chain-team/node/bls"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi"
+	"github.com/w-chain-team/node/crypto"
 
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/bitmap"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/consensus/polybft/bitmap"
+	"github.com/w-chain-team/node/types"
 	"github.com/umbracle/ethgo/abi"
 	"github.com/umbracle/fastrlp"
 )

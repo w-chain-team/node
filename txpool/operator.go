@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/0xPolygon/polygon-edge/txpool/proto"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/txpool/proto"
+	"github.com/w-chain-team/node/types"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 )
 

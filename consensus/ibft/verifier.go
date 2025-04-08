@@ -7,9 +7,9 @@ import (
 
 	"github.com/0xPolygon/go-ibft/messages"
 	protoIBFT "github.com/0xPolygon/go-ibft/messages/proto"
-	"github.com/0xPolygon/polygon-edge/consensus/ibft/signer"
-	"github.com/0xPolygon/polygon-edge/crypto"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/consensus/ibft/signer"
+	"github.com/w-chain-team/node/crypto"
+	"github.com/w-chain-team/node/types"
 )
 
 // Verifier impl for go-ibft

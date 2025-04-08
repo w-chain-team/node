@@ -11,17 +11,17 @@ import (
 
 	"github.com/multiformats/go-multiaddr"
 
-	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/command"
-	"github.com/0xPolygon/polygon-edge/command/helper"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi/artifact"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/validator"
-	"github.com/0xPolygon/polygon-edge/contracts"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/server"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/chain"
+	"github.com/w-chain-team/node/command"
+	"github.com/w-chain-team/node/command/helper"
+	"github.com/w-chain-team/node/consensus/polybft"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi/artifact"
+	"github.com/w-chain-team/node/consensus/polybft/validator"
+	"github.com/w-chain-team/node/contracts"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/server"
+	"github.com/w-chain-team/node/types"
 )
 
 const (

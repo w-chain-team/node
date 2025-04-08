@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/validator"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/consensus/polybft/validator"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/types"
 	"github.com/hashicorp/go-hclog"
 	bolt "go.etcd.io/bbolt"
 )

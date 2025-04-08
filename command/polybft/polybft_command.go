@@ -1,16 +1,16 @@
 package polybft
 
 import (
-	"github.com/0xPolygon/polygon-edge/command/rootchain/registration"
-	"github.com/0xPolygon/polygon-edge/command/rootchain/staking"
-	"github.com/0xPolygon/polygon-edge/command/rootchain/supernet"
-	"github.com/0xPolygon/polygon-edge/command/rootchain/supernet/stakemanager"
-	"github.com/0xPolygon/polygon-edge/command/rootchain/validators"
-	"github.com/0xPolygon/polygon-edge/command/rootchain/whitelist"
-	"github.com/0xPolygon/polygon-edge/command/rootchain/withdraw"
-	"github.com/0xPolygon/polygon-edge/command/sidechain/rewards"
-	"github.com/0xPolygon/polygon-edge/command/sidechain/unstaking"
-	sidechainWithdraw "github.com/0xPolygon/polygon-edge/command/sidechain/withdraw"
+	"github.com/w-chain-team/node/command/rootchain/registration"
+	"github.com/w-chain-team/node/command/rootchain/staking"
+	"github.com/w-chain-team/node/command/rootchain/supernet"
+	"github.com/w-chain-team/node/command/rootchain/supernet/stakemanager"
+	"github.com/w-chain-team/node/command/rootchain/validators"
+	"github.com/w-chain-team/node/command/rootchain/whitelist"
+	"github.com/w-chain-team/node/command/rootchain/withdraw"
+	"github.com/w-chain-team/node/command/sidechain/rewards"
+	"github.com/w-chain-team/node/command/sidechain/unstaking"
+	sidechainWithdraw "github.com/w-chain-team/node/command/sidechain/withdraw"
 	"github.com/spf13/cobra"
 )
 

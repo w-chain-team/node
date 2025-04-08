@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/0xPolygon/polygon-edge/blockchain"
-	"github.com/0xPolygon/polygon-edge/helper/progress"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/blockchain"
+	"github.com/w-chain-team/node/helper/progress"
+	"github.com/w-chain-team/node/types"
 	"github.com/stretchr/testify/assert"
 )
 

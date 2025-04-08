@@ -7,9 +7,9 @@ import (
 	"io"
 	"os"
 
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/server/proto"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/server/proto"
+	"github.com/w-chain-team/node/types"
 	"github.com/hashicorp/go-hclog"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

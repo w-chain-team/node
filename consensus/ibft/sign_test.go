@@ -3,8 +3,8 @@ package ibft
 import (
 	"testing"
 
-	"github.com/0xPolygon/polygon-edge/consensus/ibft/signer"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/consensus/ibft/signer"
+	"github.com/w-chain-team/node/types"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -6,11 +6,11 @@ import (
 	"math/big"
 	"sync"
 
-	"github.com/0xPolygon/polygon-edge/helper/hex"
-	"github.com/0xPolygon/polygon-edge/state/runtime"
-	"github.com/0xPolygon/polygon-edge/state/runtime/evm"
-	"github.com/0xPolygon/polygon-edge/state/runtime/tracer"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/helper/hex"
+	"github.com/w-chain-team/node/state/runtime"
+	"github.com/w-chain-team/node/state/runtime/evm"
+	"github.com/w-chain-team/node/state/runtime/tracer"
+	"github.com/w-chain-team/node/types"
 )
 
 type Config struct {

@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/0xPolygon/polygon-edge/command"
+	"github.com/w-chain-team/node/command"
 )
 
 const (

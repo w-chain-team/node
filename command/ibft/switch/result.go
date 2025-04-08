@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/0xPolygon/polygon-edge/command/helper"
-	"github.com/0xPolygon/polygon-edge/consensus/ibft/fork"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/validators"
+	"github.com/w-chain-team/node/command/helper"
+	"github.com/w-chain-team/node/consensus/ibft/fork"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/validators"
 )
 
 type IBFTSwitchResult struct {

@@ -4,11 +4,11 @@ import (
 	"encoding/binary"
 	"log"
 
-	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/contracts"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/state/runtime"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/chain"
+	"github.com/w-chain-team/node/contracts"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/state/runtime"
+	"github.com/w-chain-team/node/types"
 	"github.com/umbracle/ethgo/abi"
 )
 

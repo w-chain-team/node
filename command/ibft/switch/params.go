@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/command"
-	"github.com/0xPolygon/polygon-edge/command/helper"
-	"github.com/0xPolygon/polygon-edge/consensus/ibft/fork"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/validators"
+	"github.com/w-chain-team/node/chain"
+	"github.com/w-chain-team/node/command"
+	"github.com/w-chain-team/node/command/helper"
+	"github.com/w-chain-team/node/consensus/ibft/fork"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/validators"
 )
 
 const (

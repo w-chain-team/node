@@ -1,6 +1,6 @@
 package evm
 
-import "github.com/0xPolygon/polygon-edge/helper/common"
+import "github.com/w-chain-team/node/helper/common"
 
 const bitmapSize = 8
 

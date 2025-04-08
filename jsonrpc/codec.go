@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/types"
 )
 
 // Request is a jsonrpc request

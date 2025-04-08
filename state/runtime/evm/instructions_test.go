@@ -5,10 +5,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/crypto"
-	"github.com/0xPolygon/polygon-edge/state/runtime"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/chain"
+	"github.com/w-chain-team/node/crypto"
+	"github.com/w-chain-team/node/state/runtime"
+	"github.com/w-chain-team/node/types"
 	"github.com/stretchr/testify/assert"
 )
 

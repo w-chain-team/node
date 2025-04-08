@@ -12,13 +12,13 @@ import (
 	"github.com/umbracle/ethgo"
 	"github.com/umbracle/ethgo/jsonrpc"
 
-	"github.com/0xPolygon/polygon-edge/command"
-	"github.com/0xPolygon/polygon-edge/command/bridge/common"
-	cmdHelper "github.com/0xPolygon/polygon-edge/command/helper"
-	"github.com/0xPolygon/polygon-edge/command/rootchain/helper"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi"
-	"github.com/0xPolygon/polygon-edge/txrelayer"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/command"
+	"github.com/w-chain-team/node/command/bridge/common"
+	cmdHelper "github.com/w-chain-team/node/command/helper"
+	"github.com/w-chain-team/node/command/rootchain/helper"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi"
+	"github.com/w-chain-team/node/txrelayer"
+	"github.com/w-chain-team/node/types"
 )
 
 const (

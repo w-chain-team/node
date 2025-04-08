@@ -1,19 +1,19 @@
 package server
 
 import (
-	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/consensus"
-	consensusDev "github.com/0xPolygon/polygon-edge/consensus/dev"
-	consensusDummy "github.com/0xPolygon/polygon-edge/consensus/dummy"
-	consensusIBFT "github.com/0xPolygon/polygon-edge/consensus/ibft"
-	consensusPolyBFT "github.com/0xPolygon/polygon-edge/consensus/polybft"
-	"github.com/0xPolygon/polygon-edge/forkmanager"
-	"github.com/0xPolygon/polygon-edge/secrets"
-	"github.com/0xPolygon/polygon-edge/secrets/awsssm"
-	"github.com/0xPolygon/polygon-edge/secrets/gcpssm"
-	"github.com/0xPolygon/polygon-edge/secrets/hashicorpvault"
-	"github.com/0xPolygon/polygon-edge/secrets/local"
-	"github.com/0xPolygon/polygon-edge/state"
+	"github.com/w-chain-team/node/chain"
+	"github.com/w-chain-team/node/consensus"
+	consensusDev "github.com/w-chain-team/node/consensus/dev"
+	consensusDummy "github.com/w-chain-team/node/consensus/dummy"
+	consensusIBFT "github.com/w-chain-team/node/consensus/ibft"
+	consensusPolyBFT "github.com/w-chain-team/node/consensus/polybft"
+	"github.com/w-chain-team/node/forkmanager"
+	"github.com/w-chain-team/node/secrets"
+	"github.com/w-chain-team/node/secrets/awsssm"
+	"github.com/w-chain-team/node/secrets/gcpssm"
+	"github.com/w-chain-team/node/secrets/hashicorpvault"
+	"github.com/w-chain-team/node/secrets/local"
+	"github.com/w-chain-team/node/state"
 )
 
 type GenesisFactoryHook func(config *chain.Chain, engineName string) func(*state.Transition) error

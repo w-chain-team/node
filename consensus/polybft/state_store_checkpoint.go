@@ -10,9 +10,9 @@ import (
 	"github.com/umbracle/ethgo"
 	bolt "go.etcd.io/bbolt"
 
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/types"
 )
 
 var (

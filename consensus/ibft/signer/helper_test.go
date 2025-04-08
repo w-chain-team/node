@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/0xPolygon/polygon-edge/crypto"
-	"github.com/0xPolygon/polygon-edge/helper/hex"
-	"github.com/0xPolygon/polygon-edge/secrets"
-	"github.com/0xPolygon/polygon-edge/types"
-	"github.com/0xPolygon/polygon-edge/validators"
+	"github.com/w-chain-team/node/crypto"
+	"github.com/w-chain-team/node/helper/hex"
+	"github.com/w-chain-team/node/secrets"
+	"github.com/w-chain-team/node/types"
+	"github.com/w-chain-team/node/validators"
 	"github.com/coinbase/kryptology/pkg/signatures/bls/bls_sig"
 	"github.com/stretchr/testify/assert"
 )

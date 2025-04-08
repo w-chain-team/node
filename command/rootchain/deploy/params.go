@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/0xPolygon/polygon-edge/command/helper"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft"
+	"github.com/w-chain-team/node/command/helper"
+	"github.com/w-chain-team/node/consensus/polybft"
 )
 
 const (

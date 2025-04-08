@@ -5,8 +5,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/0xPolygon/polygon-edge/helper/hex"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/helper/hex"
+	"github.com/w-chain-team/node/types"
 	"github.com/stretchr/testify/require"
 )
 

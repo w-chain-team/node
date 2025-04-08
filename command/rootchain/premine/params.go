@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/0xPolygon/polygon-edge/command/helper"
-	rootHelper "github.com/0xPolygon/polygon-edge/command/rootchain/helper"
-	sidechainHelper "github.com/0xPolygon/polygon-edge/command/sidechain"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/command/helper"
+	rootHelper "github.com/w-chain-team/node/command/rootchain/helper"
+	sidechainHelper "github.com/w-chain-team/node/command/sidechain"
+	"github.com/w-chain-team/node/types"
 )
 
 var (

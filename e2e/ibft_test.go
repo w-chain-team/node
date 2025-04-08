@@ -6,11 +6,11 @@ import (
 	"testing"
 	"time"
 
-	ibftSigner "github.com/0xPolygon/polygon-edge/consensus/ibft/signer"
-	"github.com/0xPolygon/polygon-edge/e2e/framework"
-	"github.com/0xPolygon/polygon-edge/helper/tests"
-	"github.com/0xPolygon/polygon-edge/types"
-	"github.com/0xPolygon/polygon-edge/validators"
+	ibftSigner "github.com/w-chain-team/node/consensus/ibft/signer"
+	"github.com/w-chain-team/node/e2e/framework"
+	"github.com/w-chain-team/node/helper/tests"
+	"github.com/w-chain-team/node/types"
+	"github.com/w-chain-team/node/validators"
 	"github.com/stretchr/testify/assert"
 	"github.com/umbracle/ethgo"
 )

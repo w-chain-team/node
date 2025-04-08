@@ -5,7 +5,7 @@ import (
 	"log"
 	"path"
 
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/contractsapi/artifact"
+	"github.com/w-chain-team/node/consensus/polybft/contractsapi/artifact"
 )
 
 const (

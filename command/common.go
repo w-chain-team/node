@@ -6,12 +6,12 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/0xPolygon/polygon-edge/crypto"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/secrets"
-	"github.com/0xPolygon/polygon-edge/secrets/local"
-	"github.com/0xPolygon/polygon-edge/types"
-	"github.com/0xPolygon/polygon-edge/validators"
+	"github.com/w-chain-team/node/crypto"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/secrets"
+	"github.com/w-chain-team/node/secrets/local"
+	"github.com/w-chain-team/node/types"
+	"github.com/w-chain-team/node/validators"
 	"github.com/hashicorp/go-hclog"
 )
 

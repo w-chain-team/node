@@ -7,12 +7,12 @@ import (
 	"path"
 	"testing"
 
-	"github.com/0xPolygon/polygon-edge/crypto"
-	testHelper "github.com/0xPolygon/polygon-edge/helper/tests"
-	"github.com/0xPolygon/polygon-edge/types"
-	"github.com/0xPolygon/polygon-edge/validators"
-	"github.com/0xPolygon/polygon-edge/validators/store"
-	"github.com/0xPolygon/polygon-edge/validators/store/snapshot"
+	"github.com/w-chain-team/node/crypto"
+	testHelper "github.com/w-chain-team/node/helper/tests"
+	"github.com/w-chain-team/node/types"
+	"github.com/w-chain-team/node/validators"
+	"github.com/w-chain-team/node/validators/store"
+	"github.com/w-chain-team/node/validators/store/snapshot"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -3,8 +3,8 @@ package snapshot
 import (
 	"math"
 
-	"github.com/0xPolygon/polygon-edge/command"
-	"github.com/0xPolygon/polygon-edge/command/helper"
+	"github.com/w-chain-team/node/command"
+	"github.com/w-chain-team/node/command/helper"
 	"github.com/spf13/cobra"
 )
 

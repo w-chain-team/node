@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/types"
 	"github.com/umbracle/fastrlp"
 )
 

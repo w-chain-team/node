@@ -7,11 +7,11 @@ import (
 	"math/bits"
 	"sync"
 
-	"github.com/0xPolygon/polygon-edge/crypto"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/helper/keccak"
-	"github.com/0xPolygon/polygon-edge/state/runtime"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/crypto"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/helper/keccak"
+	"github.com/w-chain-team/node/state/runtime"
+	"github.com/w-chain-team/node/types"
 )
 
 type instruction func(c *state)

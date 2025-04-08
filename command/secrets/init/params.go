@@ -3,9 +3,9 @@ package init
 import (
 	"errors"
 
-	"github.com/0xPolygon/polygon-edge/command"
-	"github.com/0xPolygon/polygon-edge/secrets"
-	"github.com/0xPolygon/polygon-edge/secrets/helper"
+	"github.com/w-chain-team/node/command"
+	"github.com/w-chain-team/node/secrets"
+	"github.com/w-chain-team/node/secrets/helper"
 )
 
 const (

@@ -3,7 +3,7 @@ package proto
 import (
 	"testing"
 
-	"github.com/0xPolygon/polygon-edge/validate"
+	"github.com/w-chain-team/node/validate"
 	"github.com/golang/protobuf/ptypes/any"
 	"github.com/stretchr/testify/assert"
 )

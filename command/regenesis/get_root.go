@@ -3,7 +3,7 @@ package regenesis
 import (
 	"fmt"
 
-	"github.com/0xPolygon/polygon-edge/command"
+	"github.com/w-chain-team/node/command"
 	"github.com/spf13/cobra"
 	"github.com/umbracle/ethgo"
 	"github.com/umbracle/ethgo/jsonrpc"

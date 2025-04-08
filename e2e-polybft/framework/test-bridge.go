@@ -13,16 +13,16 @@ import (
 
 	"golang.org/x/sync/errgroup"
 
-	"github.com/0xPolygon/polygon-edge/command"
-	bridgeCommon "github.com/0xPolygon/polygon-edge/command/bridge/common"
-	"github.com/0xPolygon/polygon-edge/command/genesis"
-	cmdHelper "github.com/0xPolygon/polygon-edge/command/helper"
-	"github.com/0xPolygon/polygon-edge/command/polybftsecrets"
-	rootHelper "github.com/0xPolygon/polygon-edge/command/rootchain/helper"
-	"github.com/0xPolygon/polygon-edge/command/rootchain/server"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft"
-	"github.com/0xPolygon/polygon-edge/consensus/polybft/wallet"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/command"
+	bridgeCommon "github.com/w-chain-team/node/command/bridge/common"
+	"github.com/w-chain-team/node/command/genesis"
+	cmdHelper "github.com/w-chain-team/node/command/helper"
+	"github.com/w-chain-team/node/command/polybftsecrets"
+	rootHelper "github.com/w-chain-team/node/command/rootchain/helper"
+	"github.com/w-chain-team/node/command/rootchain/server"
+	"github.com/w-chain-team/node/consensus/polybft"
+	"github.com/w-chain-team/node/consensus/polybft/wallet"
+	"github.com/w-chain-team/node/types"
 )
 
 type TestBridge struct {

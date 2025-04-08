@@ -8,15 +8,15 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/contracts"
-	"github.com/0xPolygon/polygon-edge/crypto"
-	"github.com/0xPolygon/polygon-edge/state/runtime"
-	"github.com/0xPolygon/polygon-edge/state/runtime/addresslist"
-	"github.com/0xPolygon/polygon-edge/state/runtime/evm"
-	"github.com/0xPolygon/polygon-edge/state/runtime/precompiled"
-	"github.com/0xPolygon/polygon-edge/state/runtime/tracer"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/chain"
+	"github.com/w-chain-team/node/contracts"
+	"github.com/w-chain-team/node/crypto"
+	"github.com/w-chain-team/node/state/runtime"
+	"github.com/w-chain-team/node/state/runtime/addresslist"
+	"github.com/w-chain-team/node/state/runtime/evm"
+	"github.com/w-chain-team/node/state/runtime/precompiled"
+	"github.com/w-chain-team/node/state/runtime/tracer"
+	"github.com/w-chain-team/node/types"
 )
 
 const (
@@ -45,11 +45,28 @@ type Executor struct {
 
 // NewExecutor creates a new executor
 func NewExecutor(config *chain.Params, s State, logger hclog.Logger) *Executor {
-	return &Executor{
+	executor := &Executor{
 		logger: logger,
 		config: config,
 		state:  s,
 	}
+
+	// Get epochSize from consensus config
+	if config != nil && config.Engine != nil {
+		if ibftConfig, ok := config.Engine["ibft"].(map[string]interface{}); ok {
+			if epochSize, ok := ibftConfig["epochSize"].(uint64); ok {
+				// Add PostHook to check for epoch end
+				executor.PostHook = func(t *Transition) {
+					blockNum := uint64(t.ctx.Number)
+					if blockNum > 0 && blockNum%epochSize == 0 {
+						// End of Epoch Logic here
+					}
+				}
+			}
+		}
+	}
+
+	return executor
 }
 
 func (e *Executor) WriteGenesis(

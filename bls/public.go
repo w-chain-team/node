@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/0xPolygon/polygon-edge/helper/common"
+	"github.com/w-chain-team/node/helper/common"
 	bn256 "github.com/umbracle/go-eth-bn256"
 )
 

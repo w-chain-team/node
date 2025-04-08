@@ -3,14 +3,14 @@ package bridge
 import (
 	"github.com/spf13/cobra"
 
-	depositERC1155 "github.com/0xPolygon/polygon-edge/command/bridge/deposit/erc1155"
-	depositERC20 "github.com/0xPolygon/polygon-edge/command/bridge/deposit/erc20"
-	depositERC721 "github.com/0xPolygon/polygon-edge/command/bridge/deposit/erc721"
-	"github.com/0xPolygon/polygon-edge/command/bridge/exit"
-	"github.com/0xPolygon/polygon-edge/command/bridge/mint"
-	withdrawERC1155 "github.com/0xPolygon/polygon-edge/command/bridge/withdraw/erc1155"
-	withdrawERC20 "github.com/0xPolygon/polygon-edge/command/bridge/withdraw/erc20"
-	withdrawERC721 "github.com/0xPolygon/polygon-edge/command/bridge/withdraw/erc721"
+	depositERC1155 "github.com/w-chain-team/node/command/bridge/deposit/erc1155"
+	depositERC20 "github.com/w-chain-team/node/command/bridge/deposit/erc20"
+	depositERC721 "github.com/w-chain-team/node/command/bridge/deposit/erc721"
+	"github.com/w-chain-team/node/command/bridge/exit"
+	"github.com/w-chain-team/node/command/bridge/mint"
+	withdrawERC1155 "github.com/w-chain-team/node/command/bridge/withdraw/erc1155"
+	withdrawERC20 "github.com/w-chain-team/node/command/bridge/withdraw/erc20"
+	withdrawERC721 "github.com/w-chain-team/node/command/bridge/withdraw/erc721"
 )
 
 // GetCommand creates "bridge" helper command

@@ -3,7 +3,7 @@ package polybft
 import (
 	"sync"
 
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/types"
 )
 
 var setupHeaderHashFuncOnce sync.Once

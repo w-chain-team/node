@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/0xPolygon/polygon-edge/command/helper"
-	sidechainHelper "github.com/0xPolygon/polygon-edge/command/sidechain"
+	"github.com/w-chain-team/node/command/helper"
+	sidechainHelper "github.com/w-chain-team/node/command/sidechain"
 )
 
 var supernetIDFlag = "supernet-id"

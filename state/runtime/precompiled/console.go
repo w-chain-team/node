@@ -7,9 +7,9 @@ import (
 	"log"
 	"regexp"
 
-	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/state/runtime"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/chain"
+	"github.com/w-chain-team/node/state/runtime"
+	"github.com/w-chain-team/node/types"
 	"github.com/umbracle/ethgo"
 	"github.com/umbracle/ethgo/abi"
 )

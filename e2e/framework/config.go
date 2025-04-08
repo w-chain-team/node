@@ -5,10 +5,10 @@ import (
 	"math/big"
 	"path/filepath"
 
-	"github.com/0xPolygon/polygon-edge/consensus/ibft"
-	"github.com/0xPolygon/polygon-edge/crypto"
-	"github.com/0xPolygon/polygon-edge/types"
-	"github.com/0xPolygon/polygon-edge/validators"
+	"github.com/w-chain-team/node/consensus/ibft"
+	"github.com/w-chain-team/node/crypto"
+	"github.com/w-chain-team/node/types"
+	"github.com/w-chain-team/node/validators"
 )
 
 type ConsensusType int

@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/0xPolygon/polygon-edge/command/helper"
-	"github.com/0xPolygon/polygon-edge/types"
+	"github.com/w-chain-team/node/command/helper"
+	"github.com/w-chain-team/node/types"
 	"github.com/umbracle/ethgo"
 )
 

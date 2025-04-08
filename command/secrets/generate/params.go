@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/0xPolygon/polygon-edge/command"
-	"github.com/0xPolygon/polygon-edge/secrets"
+	"github.com/w-chain-team/node/command"
+	"github.com/w-chain-team/node/secrets"
 )
 
 var (
