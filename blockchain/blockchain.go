@@ -7,12 +7,12 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/0xPolygon/polygon-edge/blockchain/storage"
-	"github.com/0xPolygon/polygon-edge/chain"
-	"github.com/0xPolygon/polygon-edge/helper/common"
-	"github.com/0xPolygon/polygon-edge/state"
-	"github.com/0xPolygon/polygon-edge/types"
-	"github.com/0xPolygon/polygon-edge/types/buildroot"
+	"github.com/w-chain-team/node/blockchain/storage"
+	"github.com/w-chain-team/node/chain"
+	"github.com/w-chain-team/node/helper/common"
+	"github.com/w-chain-team/node/state"
+	"github.com/w-chain-team/node/types"
+	"github.com/w-chain-team/node/types/buildroot"
 
 	"github.com/hashicorp/go-hclog"
 	lru "github.com/hashicorp/golang-lru"
@@ -21,6 +21,9 @@ import (
 const (
 	// blockGasTargetDivisor is the bound divisor of the gas limit, used in update calculations
 	blockGasTargetDivisor uint64 = 1024
+
+	// minGasPrice is the minimum gas price enforced in the network, currently 200 Gwei
+	MinGasPrice uint64 = 200000000000
 
 	// defaultCacheSize is the default size for Blockchain LRU cache structures
 	defaultCacheSize int = 100
@@ -1380,14 +1383,16 @@ func (b *Blockchain) CalculateBaseFee(parent *types.Header) uint64 {
 		gasUsedDelta := parent.GasUsed - parentGasTarget
 		baseFeeDelta := b.calcBaseFeeDelta(gasUsedDelta, parentGasTarget, parent.BaseFee)
 
-		return parent.BaseFee + common.Max(baseFeeDelta, 1)
+		calculatedBaseFee := parent.BaseFee + common.Max(baseFeeDelta, 1)
+		return common.Max(calculatedBaseFee, MinGasPrice)
 	}
 
 	// Otherwise, if the parent block used less gas than its target, the baseFee should decrease.
 	gasUsedDelta := parentGasTarget - parent.GasUsed
 	baseFeeDelta := b.calcBaseFeeDelta(gasUsedDelta, parentGasTarget, parent.BaseFee)
 
-	return common.Max(parent.BaseFee-baseFeeDelta, 0)
+	calculatedBaseFee := common.Max(parent.BaseFee-baseFeeDelta, 0)
+	return common.Max(calculatedBaseFee, MinGasPrice)
 }
 
 func (b *Blockchain) calcBaseFeeDelta(gasUsedDelta, parentGasTarget, baseFee uint64) uint64 {
