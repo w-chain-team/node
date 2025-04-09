@@ -6,20 +6,22 @@ import (
 
 	"github.com/umbracle/ethgo"
 
+	"github.com/umbracle/ethgo/abi"
 	"github.com/w-chain-team/node/contracts/abis"
 	"github.com/w-chain-team/node/state/runtime"
 	"github.com/w-chain-team/node/types"
-	"github.com/umbracle/ethgo/abi"
 )
 
 const (
 	methodValidators             = "validators"
 	methodValidatorBLSPublicKeys = "validatorBLSPublicKeys"
+	methodGetRewardPool          = "getRewardPool"
+	methodGetRewardPerEpoch      = "getRewardPerEpochForEachValidator"
 )
 
 var (
 	// staking contract address
-	AddrStakingContract = types.StringToAddress("F07320bA706f1B16Db7ed32B30e55C5ffA927922")
+	AddrStakingContract = types.StringToAddress("fAc510D5dB8cadfF323D4b979D898dc38F3FB6dF")
 
 	// Gas limit used when querying the validator set
 	queryGasLimit uint64 = 1000000
@@ -165,4 +167,96 @@ func QueryBLSPublicKeys(t TxQueryHandler, from types.Address) ([][]byte, error) 
 	}
 
 	return decodeBLSPublicKeys(method, res.ReturnValue)
+}
+
+// DecodeAddress parses contract call result and returns single address
+func DecodeAddress(method *abi.Method, returnValue []byte) (types.Address, error) {
+	decodedResults, err := method.Outputs.Decode(returnValue)
+	if err != nil {
+		return types.Address{}, err
+	}
+
+	results, ok := decodedResults.(map[string]interface{})
+	if !ok {
+		return types.Address{}, errors.New("failed type assertion from decodedResults to map")
+	}
+
+	address, ok := results["0"].(ethgo.Address)
+	if !ok {
+		return types.Address{}, errors.New("failed type assertion from results[0] to ethgo.Address")
+	}
+
+	return types.Address(address), nil
+}
+
+// DecodeBigInt parses contract call result and returns big.Int
+func DecodeBigInt(method *abi.Method, returnValue []byte) (*big.Int, error) {
+	decodedResults, err := method.Outputs.Decode(returnValue)
+	if err != nil {
+		return nil, err
+	}
+
+	results, ok := decodedResults.(map[string]interface{})
+	if !ok {
+		return nil, errors.New("failed type assertion from decodedResults to map")
+	}
+
+	amount, ok := results["0"].(*big.Int)
+	if !ok {
+		return nil, errors.New("failed type assertion from results[0] to *big.Int")
+	}
+
+	return amount, nil
+}
+
+// QueryRewardPool is a helper function to get reward pool address from contract
+func QueryRewardPool(t TxQueryHandler, from types.Address) (types.Address, error) {
+	method, ok := abis.StakingABI.Methods[methodGetRewardPool]
+	if !ok {
+		return types.Address{}, ErrMethodNotFoundInABI
+	}
+
+	t.SetNonPayable(true)
+	res, err := t.Apply(createCallViewTx(
+		from,
+		AddrStakingContract,
+		method.ID(),
+		t.GetNonce(from),
+	))
+
+	if err != nil {
+		return types.Address{}, err
+	}
+
+	if res.Failed() {
+		return types.Address{}, res.Err
+	}
+
+	return DecodeAddress(method, res.ReturnValue)
+}
+
+// QueryRewardPerEpoch is a helper function to get reward per epoch for each validator
+func QueryRewardPerEpoch(t TxQueryHandler, from types.Address) (*big.Int, error) {
+	method, ok := abis.StakingABI.Methods[methodGetRewardPerEpoch]
+	if !ok {
+		return nil, ErrMethodNotFoundInABI
+	}
+
+	t.SetNonPayable(true)
+	res, err := t.Apply(createCallViewTx(
+		from,
+		AddrStakingContract,
+		method.ID(),
+		t.GetNonce(from),
+	))
+
+	if err != nil {
+		return nil, err
+	}
+
+	if res.Failed() {
+		return nil, res.Err
+	}
+
+	return DecodeBigInt(method, res.ReturnValue)
 }
