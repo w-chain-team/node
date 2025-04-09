@@ -37,6 +37,16 @@ type TxQueryHandler interface {
 	SetNonPayable(nonPayable bool)
 }
 
+// ValidatorRewardComponents holds all the components needed for validator reward distribution
+type ValidatorRewardComponents struct {
+	// Addresses of all validators
+	ValidatorAddresses []types.Address
+	// Address of the reward pool
+	RewardPoolAddress types.Address
+	// Reward amount per epoch for each validator
+	RewardPerEpoch *big.Int
+}
+
 // decodeWeb3ArrayOfBytes is a helper function to parse the data
 // representing array of bytes in contract result
 func decodeWeb3ArrayOfBytes(
@@ -259,4 +269,34 @@ func QueryRewardPerEpoch(t TxQueryHandler, from types.Address) (*big.Int, error)
 	}
 
 	return DecodeBigInt(method, res.ReturnValue)
+}
+
+// FetchValidatorRewardComponents fetches all components needed for validator reward distribution
+func FetchValidatorRewardComponents(
+	transition TxQueryHandler,
+	from types.Address,
+) (*ValidatorRewardComponents, error) {
+	// Fetch validator addresses
+	valAddrs, err := QueryValidators(transition, from)
+	if err != nil {
+		return nil, errors.New("failed to query validator addresses: %w")
+	}
+
+	// Fetch reward pool address
+	rewardPoolAddr, err := QueryRewardPool(transition, from)
+	if err != nil {
+		return nil, errors.New("failed to query reward pool address: %w")
+	}
+
+	// Fetch reward per epoch
+	rewardPerEpoch, err := QueryRewardPerEpoch(transition, from)
+	if err != nil {
+		return nil, errors.New("failed to query reward per epoch: %w")
+	}
+
+	return &ValidatorRewardComponents{
+		ValidatorAddresses: valAddrs,
+		RewardPoolAddress:  rewardPoolAddr,
+		RewardPerEpoch:     rewardPerEpoch,
+	}, nil
 }
