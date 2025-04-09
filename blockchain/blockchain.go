@@ -22,9 +22,6 @@ const (
 	// blockGasTargetDivisor is the bound divisor of the gas limit, used in update calculations
 	blockGasTargetDivisor uint64 = 1024
 
-	// minGasPrice is the minimum gas price enforced in the network, currently 200 Gwei
-	MinGasPrice uint64 = 200000000000
-
 	// defaultCacheSize is the default size for Blockchain LRU cache structures
 	defaultCacheSize int = 100
 )
@@ -1384,7 +1381,7 @@ func (b *Blockchain) CalculateBaseFee(parent *types.Header) uint64 {
 		baseFeeDelta := b.calcBaseFeeDelta(gasUsedDelta, parentGasTarget, parent.BaseFee)
 
 		calculatedBaseFee := parent.BaseFee + common.Max(baseFeeDelta, 1)
-		return common.Max(calculatedBaseFee, MinGasPrice)
+		return common.Max(calculatedBaseFee, chain.MinGasPrice)
 	}
 
 	// Otherwise, if the parent block used less gas than its target, the baseFee should decrease.
@@ -1392,7 +1389,7 @@ func (b *Blockchain) CalculateBaseFee(parent *types.Header) uint64 {
 	baseFeeDelta := b.calcBaseFeeDelta(gasUsedDelta, parentGasTarget, parent.BaseFee)
 
 	calculatedBaseFee := common.Max(parent.BaseFee-baseFeeDelta, 0)
-	return common.Max(calculatedBaseFee, MinGasPrice)
+	return common.Max(calculatedBaseFee, chain.MinGasPrice)
 }
 
 func (b *Blockchain) calcBaseFeeDelta(gasUsedDelta, parentGasTarget, baseFee uint64) uint64 {

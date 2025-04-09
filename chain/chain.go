@@ -27,6 +27,9 @@ const (
 
 	// BaseFeeChangeDenom is the value to bound the amount the base fee can change between blocks
 	BaseFeeChangeDenom = uint64(8)
+
+	// MinGasPrice is the minimum gas price enforced in the network, currently 800 Gwei
+	MinGasPrice uint64 = 800000000000
 )
 
 var (

@@ -6,19 +6,14 @@ import (
 	"sort"
 	"sync"
 
+	lru "github.com/hashicorp/golang-lru"
+	"github.com/umbracle/ethgo"
 	"github.com/w-chain-team/node/chain"
 	"github.com/w-chain-team/node/crypto"
 	"github.com/w-chain-team/node/types"
-	lru "github.com/hashicorp/golang-lru"
-	"github.com/umbracle/ethgo"
 )
 
 const couldNotFoundBlockFormat = "could not find block. Number: %d, Hash: %s"
-
-const (
-	// MinGasPrice is the minimum gas price enforced in the network (200 Gwei)
-	MinGasPrice uint64 = 200000000000
-)
 
 // DefaultGasHelperConfig is the default config for gas helper (as per ethereum)
 var DefaultGasHelperConfig = &Config{
@@ -99,7 +94,7 @@ func NewGasHelper(config *Config, backend Blockchain) (*GasHelper, error) {
 	}
 
 	// Enforce minimum gas price requirements
-	minGasPrice := new(big.Int).SetUint64(MinGasPrice)
+	minGasPrice := new(big.Int).SetUint64(chain.MinGasPrice)
 	if config.IgnorePrice.Cmp(minGasPrice) < 0 {
 		config.IgnorePrice = new(big.Int).Set(minGasPrice)
 	}
@@ -236,7 +231,7 @@ func (g *GasHelper) MaxPriorityFeePerGas() (*big.Int, error) {
 	}
 
 	// Ensure the price doesn't go below minimum
-	minGasPrice := new(big.Int).SetUint64(MinGasPrice)
+	minGasPrice := new(big.Int).SetUint64(chain.MinGasPrice)
 	if price.Cmp(minGasPrice) < 0 {
 		price = minGasPrice
 	}

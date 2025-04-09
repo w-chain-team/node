@@ -43,10 +43,10 @@ build: check-go check-git
 	$(eval BRANCH = $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n'))
 	$(eval TIME = $(shell date))
 	go build -o w-chain-node -ldflags="\
-    	-X 'github.com/0xPolygon/polygon-edge/versioning.Version=$(VERSION)' \
-		-X 'github.com/0xPolygon/polygon-edge/versioning.Commit=$(COMMIT_HASH)'\
-		-X 'github.com/0xPolygon/polygon-edge/versioning.Branch=$(BRANCH)'\
-		-X 'github.com/0xPolygon/polygon-edge/versioning.BuildTime=$(TIME)'" \
+    	-X 'github.com/w-chain-team/node/versioning.Version=$(VERSION)' \
+		-X 'github.com/w-chain-team/node/versioning.Commit=$(COMMIT_HASH)'\
+		-X 'github.com/w-chain-team/node/versioning.Branch=$(BRANCH)'\
+		-X 'github.com/w-chain-team/node/versioning.BuildTime=$(TIME)'" \
 	main.go
 
 .PHONY: build-linux-amd64
@@ -56,10 +56,10 @@ build-linux-amd64: check-go check-git
 	$(eval BRANCH = $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n'))
 	$(eval TIME = $(shell date))
 	GOOS=linux GOARCH=amd64 go build -o w-chain-node-linux-amd64 -ldflags="\
-			-X 'github.com/0xPolygon/polygon-edge/versioning.Version=$(VERSION)' \
-			-X 'github.com/0xPolygon/polygon-edge/versioning.Commit=$(COMMIT_HASH)'\
-			-X 'github.com/0xPolygon/polygon-edge/versioning.Branch=$(BRANCH)'\
-			-X 'github.com/0xPolygon/polygon-edge/versioning.BuildTime=$(TIME)'" \
+			-X 'github.com/w-chain-team/node/versioning.Version=$(VERSION)' \
+			-X 'github.com/w-chain-team/node/versioning.Commit=$(COMMIT_HASH)'\
+			-X 'github.com/w-chain-team/node/versioning.Branch=$(BRANCH)'\
+			-X 'github.com/w-chain-team/node/versioning.BuildTime=$(TIME)'" \
 	main.go
 	
 .PHONY: build-linux-arm64
@@ -69,10 +69,10 @@ build-linux-arm64: check-go check-git
 	$(eval BRANCH = $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n'))
 	$(eval TIME = $(shell date))
 	GOOS=linux GOARCH=arm64 go build -o w-chain-node-linux-arm64 -ldflags="\
-			-X 'github.com/0xPolygon/polygon-edge/versioning.Version=$(VERSION)' \
-			-X 'github.com/0xPolygon/polygon-edge/versioning.Commit=$(COMMIT_HASH)'\
-			-X 'github.com/0xPolygon/polygon-edge/versioning.Branch=$(BRANCH)'\
-			-X 'github.com/0xPolygon/polygon-edge/versioning.BuildTime=$(TIME)'" \
+			-X 'github.com/w-chain-team/node/versioning.Version=$(VERSION)' \
+			-X 'github.com/w-chain-team/node/versioning.Commit=$(COMMIT_HASH)'\
+			-X 'github.com/w-chain-team/node/versioning.Branch=$(BRANCH)'\
+			-X 'github.com/w-chain-team/node/versioning.BuildTime=$(TIME)'" \
 	main.go
 
 .PHONY: lint
