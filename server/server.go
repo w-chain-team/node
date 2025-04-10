@@ -19,6 +19,9 @@ import (
 	"github.com/w-chain-team/node/forkmanager"
 	"github.com/w-chain-team/node/gasprice"
 
+	"github.com/hashicorp/go-hclog"
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/w-chain-team/node/archive"
 	"github.com/w-chain-team/node/blockchain"
 	"github.com/w-chain-team/node/chain"
@@ -39,9 +42,6 @@ import (
 	"github.com/w-chain-team/node/txpool"
 	"github.com/w-chain-team/node/types"
 	"github.com/w-chain-team/node/validate"
-	"github.com/hashicorp/go-hclog"
-	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"google.golang.org/grpc"
 )
 

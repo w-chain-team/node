@@ -42,7 +42,7 @@ const StakingJSONABI = `[
   },
   {
     "inputs": [],
-    "name": "getRewardPerEpochForEachValidator",
+    "name": "getRewardPerEpoch",
     "outputs": [
       {
         "internalType": "uint256",

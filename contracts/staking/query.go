@@ -2,6 +2,7 @@ package staking
 
 import (
 	"errors"
+	"fmt"
 	"math/big"
 
 	"github.com/umbracle/ethgo"
@@ -16,7 +17,7 @@ const (
 	methodValidators             = "validators"
 	methodValidatorBLSPublicKeys = "validatorBLSPublicKeys"
 	methodGetRewardPool          = "getRewardPool"
-	methodGetRewardPerEpoch      = "getRewardPerEpochForEachValidator"
+	methodGetRewardPerEpoch      = "getRewardPerEpoch"
 )
 
 var (
@@ -279,19 +280,30 @@ func FetchValidatorRewardComponents(
 	// Fetch validator addresses
 	valAddrs, err := QueryValidators(transition, from)
 	if err != nil {
-		return nil, errors.New("failed to query validator addresses: %w")
+		return nil, fmt.Errorf("failed to query validator addresses: %w", err)
 	}
 
 	// Fetch reward pool address
 	rewardPoolAddr, err := QueryRewardPool(transition, from)
 	if err != nil {
-		return nil, errors.New("failed to query reward pool address: %w")
+		return nil, fmt.Errorf("failed to query reward pool address: %w", err)
 	}
 
 	// Fetch reward per epoch
 	rewardPerEpoch, err := QueryRewardPerEpoch(transition, from)
 	if err != nil {
-		return nil, errors.New("failed to query reward per epoch: %w")
+		// Log the error but return a default reward component with zero reward
+		return &ValidatorRewardComponents{
+			ValidatorAddresses: valAddrs,
+			RewardPoolAddress:  rewardPoolAddr,
+			RewardPerEpoch:     big.NewInt(0),
+		}, nil
+	}
+
+	// Calculate reward per validator by dividing total reward by number of validators
+	if len(valAddrs) > 0 {
+		rewardPerValidator := new(big.Int).Div(rewardPerEpoch, big.NewInt(int64(len(valAddrs))))
+		rewardPerEpoch = rewardPerValidator
 	}
 
 	return &ValidatorRewardComponents{

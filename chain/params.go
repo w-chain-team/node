@@ -76,6 +76,38 @@ func (p *Params) GetEngine() string {
 	return ""
 }
 
+// GetEpochSize returns the epoch size from the IBFT engine configuration
+func (p *Params) GetEpochSize() (uint64, error) {
+	if p.Engine == nil {
+		return 0, errors.New("engine configuration not found")
+	}
+
+	ibftInterface, exists := p.Engine["ibft"]
+	if !exists {
+		return 0, errors.New("ibft configuration not found")
+	}
+
+	ibftConfig, ok := ibftInterface.(map[string]interface{})
+	if !ok {
+		return 0, errors.New("invalid ibft configuration format")
+	}
+
+	epochSizeInterface, exists := ibftConfig["epochSize"]
+	if !exists {
+		return 0, errors.New("epochSize not found in ibft configuration")
+	}
+
+	// Handle both float64 (default JSON number type) and uint64 cases
+	switch value := epochSizeInterface.(type) {
+	case float64:
+		return uint64(value), nil
+	case uint64:
+		return value, nil
+	default:
+		return 0, errors.New("invalid epochSize type")
+	}
+}
+
 // predefined forks
 const (
 	Homestead           = "homestead"
