@@ -10,7 +10,6 @@ import (
 
 	"github.com/w-chain-team/node/chain"
 	"github.com/w-chain-team/node/contracts"
-	"github.com/w-chain-team/node/contracts/staking"
 	"github.com/w-chain-team/node/crypto"
 	"github.com/w-chain-team/node/state/runtime"
 	"github.com/w-chain-team/node/state/runtime/addresslist"
@@ -149,74 +148,6 @@ func (e *Executor) ProcessBlock(
 
 		if err = txn.Write(t); err != nil {
 			return nil, err
-		}
-	}
-
-	// Check for epoch end once per block
-	if e.config != nil && e.config.Engine != nil {
-		if ibftConfig, ok := e.config.Engine["ibft"].(map[string]interface{}); ok {
-			epochSize, ok := ibftConfig["epochSize"].(uint64)
-			if !ok {
-				e.logger.Error("Failed to get epoch size from config", "error", "invalid or missing epochSize")
-				return txn, nil
-			}
-
-			blockNum := block.Header.Number
-			if blockNum > 0 && blockNum%epochSize == 0 {
-				// Handle validator rewards distribution here
-				// This will execute exactly once at the end of each epoch
-				e.logger.Debug("End of epoch reached", "blockNum", blockNum, "epochSize", epochSize)
-
-				// Safely handle reward distribution
-				func() {
-					defer func() {
-						if r := recover(); r != nil {
-							e.logger.Error("Recovered from panic in reward distribution",
-								"error", r,
-								"blockNum", blockNum)
-						}
-					}()
-
-					// Fetch validator reward components
-					rewardComponents, err := staking.FetchValidatorRewardComponents(txn, types.ZeroAddress)
-					if err != nil {
-						e.logger.Error("Failed to fetch validator reward components",
-							"error", err,
-							"blockNum", blockNum)
-						return
-					}
-
-					if rewardComponents == nil {
-						e.logger.Error("Invalid reward components: nil value returned",
-							"blockNum", blockNum)
-						return
-					}
-
-					// Distribute rewards to validators
-					for _, validatorAddr := range rewardComponents.ValidatorAddresses {
-						if validatorAddr == types.ZeroAddress {
-							e.logger.Error("Invalid validator address: zero address",
-								"blockNum", blockNum)
-							continue
-						}
-
-						if err := txn.Transfer(rewardComponents.RewardPoolAddress, validatorAddr, rewardComponents.RewardPerEpoch); err != nil {
-							e.logger.Error("Failed to transfer reward to validator",
-								"validator", validatorAddr,
-								"rewardPool", rewardComponents.RewardPoolAddress,
-								"amount", rewardComponents.RewardPerEpoch,
-								"blockNum", blockNum,
-								"error", err)
-							continue
-						}
-
-						e.logger.Debug("Distributed reward to validator",
-							"validator", validatorAddr,
-							"amount", rewardComponents.RewardPerEpoch,
-							"blockNum", blockNum)
-					}
-				}()
-			}
 		}
 	}
 
